@@ -1,5 +1,5 @@
 # Covid19-Data-Tracking-Service
-A Covid19 data tracking microservice created using Spring Boot and REST API to fetch Covid19 data. <br/>
+A Covid19 data tracking microservice created using Spring Boot and REST API to fetch Covid19 data using a public REST endpoint. <br/>
 You can use Swagger UI console to view/manage/consume the REST endpoints.<br/>
 Integration tests and Unit tests can be found in test folders.
 
