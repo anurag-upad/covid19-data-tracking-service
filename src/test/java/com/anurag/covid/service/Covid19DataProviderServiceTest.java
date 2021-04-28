@@ -1,10 +1,15 @@
 package com.anurag.covid.service;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.ArgumentMatchers.*;
+import static org.junit.jupiter.api.Assertions.assertAll;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.nullable;
 import static org.mockito.Mockito.when;
 
 import java.time.ZonedDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -111,7 +116,7 @@ public class Covid19DataProviderServiceTest {
         countryData.setSummary(summaryData);
 
         covidApiData.setData(countryData);
-//        covidApiData.setSuccess(true);
+        covidApiData.setSuccess(true);
         covidApiData.setLastRefreshed(ZonedDateTime.now());
 
         return covidApiData;
@@ -137,12 +142,14 @@ public class Covid19DataProviderServiceTest {
         sd.setConfirmedCasesIndian(1000);
         sd.setConfirmedCasesForeign(0);
         sd.setTotalConfirmed(1000);
-        countryData.setRegional(new StateData[]{sd});
+        List<StateData> stateDataList=new ArrayList<StateData>();
+        stateDataList.add(sd);
+        countryData.setRegional(stateDataList);
 
         covidApiData.setData(countryData);
-/*
+
         covidApiData.setSuccess(true);
-        covidApiData.setLastRefreshed(ZonedDateTime.now());*/
+        covidApiData.setLastRefreshed(ZonedDateTime.now());
         return covidApiData;
     }
 

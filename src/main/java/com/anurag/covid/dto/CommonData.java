@@ -1,5 +1,10 @@
 package com.anurag.covid.dto;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class CommonData {
 	
 	private int confirmedCasesIndian;
@@ -7,37 +12,6 @@ public class CommonData {
     private int discharged;
     private int deaths;
 
-    //Getters and Setters start from here
-    public int getConfirmedCasesIndian() {
-        return confirmedCasesIndian;
-    }
-
-    public void setConfirmedCasesIndian(int confirmedCasesIndian) {
-        this.confirmedCasesIndian = confirmedCasesIndian;
-    }
-
-    public int getConfirmedCasesForeign() {
-        return confirmedCasesForeign;
-    }
-
-    public void setConfirmedCasesForeign(int confirmedCasesForeign) {
-        this.confirmedCasesForeign = confirmedCasesForeign;
-    }
-
-    public int getDischarged() {
-        return discharged;
-    }
-
-    public void setDischarged(int discharged) {
-        this.discharged = discharged;
-    }
-
-    public int getDeaths() {
-        return deaths;
-    }
-
-    public void setDeaths(int deaths) {
-        this.deaths = deaths;
-    }
+    //Getters and Setters created from lombok
 
 }

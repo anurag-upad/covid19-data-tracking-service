@@ -1,25 +1,15 @@
 package com.anurag.covid.dto;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class StateData extends CommonData{
 	
 	private String loc;
     private int totalConfirmed;
     
-    //Getters and Setters start from here
-    public String getLoc() {
-        return loc;
-    }
-
-    public void setLoc(String loc) {
-        this.loc = loc;
-    }
-
-    public int getTotalConfirmed() {
-        return totalConfirmed;
-    }
-
-    public void setTotalConfirmed(int totalConfirmed) {
-        this.totalConfirmed = totalConfirmed;
-    }
+    //Getters and Setters created from lombok
 
 }

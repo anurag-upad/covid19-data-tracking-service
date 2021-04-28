@@ -10,18 +10,32 @@
 	</parent>
 	<groupId>com.example</groupId>
 	<artifactId>covid-alert-service</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
 	<name>covid-alert-service</name>
+	<version>0.0.1-SNAPSHOT</version>
 	<description>Covid alert microservice</description>
 	<properties>
 		<java.version>11</java.version>
+		<swagger.version>2.9.1</swagger.version>
 	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-
+		
+		<!-- Swagger dependencies -->
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>${swagger.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>${swagger.version}</version>
+		</dependency>
+		
+		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
@@ -55,6 +69,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<finalName>${project.artifactId}</finalName>
 	</build>
 
 </project>
