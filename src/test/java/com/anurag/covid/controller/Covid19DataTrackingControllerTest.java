@@ -1,60 +1,45 @@
 package com.anurag.covid.controller;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.mockito.ArgumentMatchers;
-import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.web.servlet.MockMvc;
-
-import com.anurag.covid.dto.AlertLevel;
-import com.anurag.covid.dto.AlertStatus;
-import com.anurag.covid.dto.SummaryData;
-import com.anurag.covid.service.Covid19DataTrackingService;
 
 @SpringBootTest
 @AutoConfigureMockMvc
+@TestPropertySource(locations = "classpath:application-test.properties")
 public class Covid19DataTrackingControllerTest {
 	
 	@Autowired
     private MockMvc mockMvc;
 
-    @MockBean
-    private Covid19DataTrackingService alertService;
 
-
-    @Test
+	@Test
+	@DisplayName("Integration test which invokes REST endpoints in Controller and external REST endpoint to fetch state specific covid19 data")
     void getCovidAlertsForStateTest() throws Exception {
-
-        AlertStatus alertStatus = new AlertStatus();
-        alertStatus.setAlertLevel(AlertLevel.RED.name());
-        Mockito.when(alertService.getCovid19AlertsForState(ArgumentMatchers.anyString())).thenReturn(alertStatus);
 
         mockMvc.perform(get("/india/covidData/delhi"))
                 .andExpect(status().isOk())
-                .andExpect(content().json("{\"alertLevel\":\"RED\",\"measuresToBeTaken\":null,\"summaryData\":null}"));
+                .andReturn();
     }
 
     @Test
+    @DisplayName("Integration test which invokes REST endpoints in Controller and external REST endpoint to fetch combined summary covid19 data")
     void getOverAllSummaryTest() throws Exception {
-
-        SummaryData sd  = new SummaryData();
-        sd.setTotal(1000000);
-
-        Mockito.when(alertService.getOverAllSummary()).thenReturn(sd);
 
         mockMvc.perform(get("/india/covidData/summary"))
                 .andExpect(status().isOk())
-                .andExpect(content().json("{\"total\":1000000,\"confirmedCasesIndian\":0,\"confirmedCasesForeign\":0,\"discharged\":0,\"deaths\":0,\"confirmedButLocationUnidentified\":0}"));
+                .andReturn();
     }
 
     @Test
+    @DisplayName("Integration test which invokes an invalid REST endpoint")
     void invalidEndpoint() throws Exception {
 
         mockMvc.perform(get("/india/123"))

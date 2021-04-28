@@ -49,7 +49,7 @@ public class Covid19DataProviderServiceTest {
     @DisplayName("state data provider test")
     void getStateDataTest() {
     	
-    	System.out.println(covid19ApiUrl);
+    	//System.out.println(covid19ApiUrl);
         when(restTemplate.getForObject(nullable(String.class), any())).thenReturn(getCovidApiData());
 
         StateData delhi = covid19DataProvider.getStateData("Delhi");
