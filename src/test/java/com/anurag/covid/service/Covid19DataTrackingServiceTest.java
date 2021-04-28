@@ -23,10 +23,10 @@ import com.anurag.covid.dto.StateData;
 import com.anurag.covid.dto.SummaryData;
 
 @SpringBootTest
-public class Covid19AlertServiceTest {
+public class Covid19DataTrackingServiceTest {
 	
 	@InjectMocks
-    private Covid19AlertService alertService;
+    private Covid19DataTrackingService alertService;
 
     @Mock
     private Covid19DataProviderService covid19DataProvider;

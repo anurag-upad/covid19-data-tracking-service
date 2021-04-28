@@ -11,7 +11,7 @@ import com.anurag.covid.dto.StateData;
 import com.anurag.covid.dto.SummaryData;
 
 @Service
-public class Covid19AlertService {
+public class Covid19DataTrackingService {
 	
 	@Autowired
     private Covid19DataProviderService covid19DataProviderService;

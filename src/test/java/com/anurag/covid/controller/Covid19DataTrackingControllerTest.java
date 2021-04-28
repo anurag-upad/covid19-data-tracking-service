@@ -16,17 +16,17 @@ import org.springframework.test.web.servlet.MockMvc;
 import com.anurag.covid.dto.AlertLevel;
 import com.anurag.covid.dto.AlertStatus;
 import com.anurag.covid.dto.SummaryData;
-import com.anurag.covid.service.Covid19AlertService;
+import com.anurag.covid.service.Covid19DataTrackingService;
 
 @SpringBootTest
 @AutoConfigureMockMvc
-public class Covid19AlertControllerTest {
+public class Covid19DataTrackingControllerTest {
 	
 	@Autowired
     private MockMvc mockMvc;
 
     @MockBean
-    private Covid19AlertService alertService;
+    private Covid19DataTrackingService alertService;
 
 
     @Test

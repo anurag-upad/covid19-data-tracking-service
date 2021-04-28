@@ -9,8 +9,8 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>covid-alert-service</artifactId>
-	<name>covid-alert-service</name>
+	<artifactId>covid-data-tracking-service</artifactId>
+	<name>covid-data-tracking-service</name>
 	<version>0.0.1-SNAPSHOT</version>
 	<description>Covid alert microservice</description>
 	<properties>

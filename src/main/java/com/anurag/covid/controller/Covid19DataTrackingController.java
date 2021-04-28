@@ -9,16 +9,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.anurag.covid.dto.AlertStatus;
 import com.anurag.covid.dto.SummaryData;
-import com.anurag.covid.service.Covid19AlertService;
+import com.anurag.covid.service.Covid19DataTrackingService;
 
 import io.swagger.annotations.ApiOperation;
 
 @RestController
 @RequestMapping("/india")
-public class Covid19AlertController {
+public class Covid19DataTrackingController {
 
     @Autowired
-    private Covid19AlertService covid19AlertService;
+    private Covid19DataTrackingService covid19AlertService;
 
     @GetMapping("/covidData/{state}")
     @ApiOperation(code = 200, value = "Get Covid19 infected people's data for a particular state in India", notes = " source :www.covid19india.org/ ")
